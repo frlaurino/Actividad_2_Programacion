@@ -8,7 +8,7 @@ def validar_titulo(titulo):
     return valido
 
 
-def validar_texto_resena(texto):
+def validar_texto_reseña(texto):
     """Valida que la reseña no este vacia, supere la longitud minima y contenga letras."""
     texto_limpio = texto.strip()
     tiene_letras = False
@@ -37,10 +37,10 @@ def ingresar_titulo(mensaje):
     return titulo
 
 
-def ingresar_texto_resena(mensaje):
+def ingresar_texto_reseña(mensaje):
     """Solicita el texto de la reseña hasta que cumpla con la longitud y contenido."""
     texto = input(mensaje).strip()
-    while not validar_texto_resena(texto):
+    while not validar_texto_reseña(texto):
         print("Error: La reseña no puede estar vacia, debe tener al menos 10 caracteres y contener letras.")
         texto = input(mensaje).strip()
     return texto
@@ -86,19 +86,19 @@ def ingresar_puntuacion(mensaje):
     return nota
 
 
-def agregar_resena(resenas):
+def agregar_reseña(reseñas):
     """Solicita y valida los datos de una nueva reseña y la agrega a la matriz."""
     print("\n--- AGREGAR NUEVA RESEÑA ---")
-    if len(resenas) > 0:
-        nuevo_id = resenas[len(resenas) - 1][0] + 1
+    if len(reseñas) > 0:
+        nuevo_id = reseñas[len(reseñas) - 1][0] + 1
     else:
         nuevo_id = 1
 
     titulo = ingresar_titulo("Ingrese el titulo de la pelicula o serie: ")
-    texto = ingresar_texto_resena("Ingrese el texto de la reseña (minimo 10 caracteres): ")
+    texto = ingresar_texto_reseña("Ingrese el texto de la reseña (minimo 10 caracteres): ")
     puntuacion = ingresar_puntuacion("Ingrese la puntuacion (1 a 10): ")
 
-    nueva_resena = [nuevo_id, titulo, texto, puntuacion]
-    resenas.append(nueva_resena)
+    nueva_reseña = [nuevo_id, titulo, texto, puntuacion]
+    reseñas.append(nueva_reseña)
     print("Reseña cargada con exito. ID asignado:", nuevo_id)
-    return nueva_resena
+    return nueva_reseña
